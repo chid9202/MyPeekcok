@@ -1,0 +1,12 @@
+{
+  "name": "MyPeekcok",
+  "displayName": "MyPeekcok",
+  "expo": {
+    "name": "MyPeekcok",
+    "slug": "MyPeekcok",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

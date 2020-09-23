@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     width: "100%",
     maxHeight: 84,
+    marginBottom: 5,
   },
   interactiveHeader: {
     height: 42,

@@ -1,4 +1,4 @@
-import React, { ReactComponentElement } from "react";
+import React from "react";
 import {
   SafeAreaView,
   View,
@@ -8,39 +8,11 @@ import {
   StatusBar,
   Image,
 } from "react-native";
+
 import ChatListHeader from "./ChatListHeader";
-import { ThumbnailAvatar } from "../../assets";
 import IconArrowRight from "../../assets/IconArrowRight";
-
+import MessageList from "../../mocks/MessageList";
 const ChatListScreen = () => {
-  const defaultAvatar = (
-    <Image source={ThumbnailAvatar} style={styles.avatarImage} />
-  );
-  const DATA = [
-    {
-      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-      avatar: defaultAvatar,
-      contactName: "Daehan Chi",
-      message:
-        "aaaaa aaa aaa a aa a  aa a a  aa  a aa aaaaa aaa aaa a aa a  aa a a  aa  a aa aaaaa aaa aaa a aa a  aa a a  aa  a aa",
-      date: "9/13/20",
-    },
-    {
-      id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-      avatar: defaultAvatar,
-      contactName: "Jaehong Kim",
-      message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
-      date: "9/14/20",
-    },
-    {
-      id: "58694a0f-3da1-471f-bd96-145571e29d72",
-      avatar: defaultAvatar,
-      contactName: "David Kim",
-      message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
-      date: "9/15/20",
-    },
-  ];
-
   const Item = ({
     contactName,
     avatar,
@@ -53,7 +25,9 @@ const ChatListScreen = () => {
     message?: string;
   }) => (
     <View style={styles.section}>
-      <View style={styles.avatarColumn}>{avatar}</View>
+      <View style={styles.avatarColumn}>
+        <Image source={avatar} style={styles.avatarImage} />
+      </View>
       <View style={styles.contentColumn}>
         <View style={styles.messageHeader}>
           <Text style={styles.contactName}>{contactName}</Text>
@@ -85,8 +59,9 @@ const ChatListScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ChatListHeader />
+      <SearchBar />
       <FlatList
-        data={DATA}
+        data={MessageList}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
@@ -141,9 +116,7 @@ const styles = StyleSheet.create({
     color: "#999999",
     marginRight: 10,
   },
-  messageContent: {
-    // height: 50,
-  },
+  messageContent: {},
   message: {
     fontSize: 15,
     color: "#999999",

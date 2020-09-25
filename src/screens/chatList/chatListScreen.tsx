@@ -8,11 +8,15 @@ import {
   StatusBar,
   Image,
 } from "react-native";
+// import { SearchBar } from "react-native-elements";
+import SearchBar from "../../components/SearchBar";
 
 import ChatListHeader from "./ChatListHeader";
 import IconArrowRight from "../../assets/IconArrowRight";
 import MessageList from "../../mocks/MessageList";
 const ChatListScreen = () => {
+  const [search, setSearch] = React.useState("");
+
   const Item = ({
     contactName,
     avatar,
@@ -59,7 +63,7 @@ const ChatListScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ChatListHeader />
-      <SearchBar />
+      <SearchBar placeholder="Search" onChangeText={setSearch} value={search} />
       <FlatList
         data={MessageList}
         renderItem={renderItem}

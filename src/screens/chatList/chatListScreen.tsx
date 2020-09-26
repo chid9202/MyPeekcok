@@ -1,76 +1,16 @@
 import React from "react";
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  StatusBar,
-  Image,
-} from "react-native";
+import { SafeAreaView, FlatList, StyleSheet, StatusBar } from "react-native";
 import SearchBar from "../../components/SearchBar";
 
 import ChatListHeader from "./ChatListHeader";
-import IconArrowRight from "../../assets/IconArrowRight";
 import MessageList from "../../mocks/MessageList";
-import { Icon } from "react-native-elements";
-import { SystemBlue } from "../../themes";
+import ChatItem, { ChatItemProps } from "./ChatItem";
 
 const ChatListScreen = () => {
   const [search, setSearch] = React.useState("");
 
-  const Item = ({
-    contactName,
-    avatar,
-    date,
-    message,
-    isRead,
-  }: {
-    contactName: string;
-    avatar: any;
-    date: string;
-    message?: string;
-    isRead?: boolean;
-  }) => (
-    <View style={styles.section}>
-      <View style={styles.avatarColumn}>
-        {!!!isRead && (
-          <Icon
-            type="font-awesome"
-            name="circle"
-            color={SystemBlue}
-            size={10}
-          />
-        )}
-        <Image source={avatar} style={styles.avatarImage} />
-      </View>
-      <View style={styles.contentColumn}>
-        <View style={styles.messageHeader}>
-          <Text style={styles.contactName}>{contactName}</Text>
-          <Text style={styles.date}>{date}</Text>
-          <IconArrowRight />
-        </View>
-        <View style={styles.messageContent}>
-          <Text style={styles.message} numberOfLines={2}>
-            {message}
-          </Text>
-        </View>
-      </View>
-    </View>
-  );
-
-  const renderItem = ({
-    item,
-  }: {
-    item: {
-      contactName: string;
-      avatar: any;
-      date: string;
-      message: string;
-      isRead: boolean;
-    };
-  }) => (
-    <Item
+  const renderItem = ({ item }: { item: ChatItemProps }) => (
+    <ChatItem
       contactName={item.contactName}
       avatar={item.avatar}
       date={item.date}
@@ -104,49 +44,6 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     minHeight: 75,
     paddingHorizontal: 20,
-  },
-  avatarColumn: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    flex: 0,
-    alignItems: "center",
-    justifyContent: "flex-end",
-    minWidth: 65,
-    marginRight: 10,
-  },
-  avatarImage: {
-    width: 45,
-    height: 45,
-    marginLeft: 5,
-  },
-  contentColumn: {
-    flex: 1,
-    flexDirection: "column",
-    borderTopColor: "#292929",
-    borderTopWidth: 1,
-    paddingVertical: 8,
-  },
-  messageHeader: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  contactName: {
-    flex: 1,
-    fontSize: 17,
-    fontWeight: "bold",
-    color: "#ffffff",
-  },
-  date: {
-    fontSize: 15,
-    color: "#999999",
-    marginRight: 10,
-  },
-  messageContent: {},
-  message: {
-    fontSize: 15,
-    color: "#999999",
   },
 });
 

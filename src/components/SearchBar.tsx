@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: darkThemeBackground,
   },
 });
+
 SearchBar.defaultProps = {
   placeholder: "Search",
   onChangeText: Function(),

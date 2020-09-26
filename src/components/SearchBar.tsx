@@ -11,6 +11,7 @@ interface Props {
 const SearchBar: FC<Props> = (props) => {
   return (
     <RNESearchBar
+      platform="ios"
       placeholder={props.placeholder}
       onChangeText={(e) => props.onChangeText(e)}
       value={props.value}

@@ -8,6 +8,7 @@ const MessageList = [
     message:
       "aaaaa aaa aaa a aa a  aa a a  aa  a aa aaaaa aaa aaa a aa a  aa a a  aa  a aa aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/13/20",
+    isRead: false,
   },
   {
     id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
@@ -15,6 +16,7 @@ const MessageList = [
     contactName: "Jaehong Kim",
     message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/14/20",
+    isRead: false,
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e29d72",
@@ -22,6 +24,7 @@ const MessageList = [
     contactName: "David Kim",
     message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/15/20",
+    isRead: true,
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e29d73",
@@ -29,6 +32,7 @@ const MessageList = [
     contactName: "David Kim",
     message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/15/20",
+    isRead: true,
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e29d74",
@@ -36,6 +40,7 @@ const MessageList = [
     contactName: "David Kim",
     message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/15/20",
+    isRead: true,
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e29d75",
@@ -43,6 +48,7 @@ const MessageList = [
     contactName: "David Kim",
     message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/15/20",
+    isRead: true,
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e2966",
@@ -50,6 +56,7 @@ const MessageList = [
     contactName: "David Kim",
     message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/15/20",
+    isRead: true,
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e2912",
@@ -57,6 +64,7 @@ const MessageList = [
     contactName: "David Kim",
     message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/15/20",
+    isRead: true,
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e29613",
@@ -64,6 +72,7 @@ const MessageList = [
     contactName: "David Kim",
     message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/15/20",
+    isRead: true,
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e2916",
@@ -71,6 +80,7 @@ const MessageList = [
     contactName: "David Kim",
     message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/15/20",
+    isRead: true,
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e2978",
@@ -78,6 +88,7 @@ const MessageList = [
     contactName: "David Kim",
     message: "aaaaa aaa aaa a aa a  aa a a  aa  a aa",
     date: "9/15/20",
+    isRead: true,
   },
 ];
 

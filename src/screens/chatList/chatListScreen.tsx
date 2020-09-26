@@ -8,12 +8,14 @@ import {
   StatusBar,
   Image,
 } from "react-native";
-// import { SearchBar } from "react-native-elements";
 import SearchBar from "../../components/SearchBar";
 
 import ChatListHeader from "./ChatListHeader";
 import IconArrowRight from "../../assets/IconArrowRight";
 import MessageList from "../../mocks/MessageList";
+import { Icon } from "react-native-elements";
+import { SystemBlue } from "../../themes";
+
 const ChatListScreen = () => {
   const [search, setSearch] = React.useState("");
 
@@ -22,14 +24,24 @@ const ChatListScreen = () => {
     avatar,
     date,
     message,
+    isRead,
   }: {
     contactName: string;
     avatar: any;
     date: string;
     message?: string;
+    isRead?: boolean;
   }) => (
     <View style={styles.section}>
       <View style={styles.avatarColumn}>
+        {!!!isRead && (
+          <Icon
+            type="font-awesome"
+            name="circle"
+            color={SystemBlue}
+            size={10}
+          />
+        )}
         <Image source={avatar} style={styles.avatarImage} />
       </View>
       <View style={styles.contentColumn}>
@@ -50,13 +62,20 @@ const ChatListScreen = () => {
   const renderItem = ({
     item,
   }: {
-    item: { contactName: string; avatar: any; date: string; message: string };
+    item: {
+      contactName: string;
+      avatar: any;
+      date: string;
+      message: string;
+      isRead: boolean;
+    };
   }) => (
     <Item
       contactName={item.contactName}
       avatar={item.avatar}
       date={item.date}
       message={item.message}
+      isRead={item.isRead}
     />
   );
 
@@ -87,15 +106,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   avatarColumn: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
     flex: 0,
     alignItems: "center",
-    justifyContent: "center",
-    minWidth: 45,
+    justifyContent: "flex-end",
+    minWidth: 65,
     marginRight: 10,
   },
   avatarImage: {
     width: 45,
     height: 45,
+    marginLeft: 5,
   },
   contentColumn: {
     flex: 1,

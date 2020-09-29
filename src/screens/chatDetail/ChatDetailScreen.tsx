@@ -1,13 +1,26 @@
-import React from "react";
-import { SafeAreaView, FlatList, StyleSheet, StatusBar } from "react-native";
-import SearchBar from "../../components/SearchBar";
+import React, { FC } from "react";
+import { SafeAreaView, StyleSheet, StatusBar } from "react-native";
 import { darkThemeBackground } from "../../themes";
-import ChatListHeader from "./ChatListHeader";
-import MessageList from "../../mocks/MessageList";
-import ChatItem, { ChatItemProps } from "./ChatItem";
+import MESSAGE_THREAD, {
+  MessageThreadInterface,
+} from "../../mocks/MessageThreadMock";
+import ChatDetailHeader from "./ChatDetailHeader";
+import { RootStackParamList } from "../screenProps";
+import { StackScreenProps } from "@react-navigation/stack";
 
-const ChatDetailScreen = () => {
-  return <SafeAreaView style={styles.container}>dfdfdfdfdf</SafeAreaView>;
+type DetailScreenNavigationProp = StackScreenProps<RootStackParamList, "Home">;
+
+const ChatDetailScreen: FC<DetailScreenNavigationProp> = (props) => {
+  const messageThread: MessageThreadInterface = MESSAGE_THREAD;
+  console.log({ messageThread });
+  return (
+    <SafeAreaView style={styles.container}>
+      <ChatDetailHeader
+        avatar={messageThread.avatar}
+        contactName={messageThread.contactName}
+      />
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -16,13 +29,6 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
     width: "100%",
     backgroundColor: darkThemeBackground,
-  },
-  section: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    minHeight: 75,
-    paddingHorizontal: 20,
   },
 });
 

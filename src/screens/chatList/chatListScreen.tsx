@@ -3,7 +3,7 @@ import { SafeAreaView, FlatList, StyleSheet, StatusBar } from "react-native";
 import SearchBar from "../../components/SearchBar";
 import { darkThemeBackground } from "../../themes";
 import ChatListHeader from "./ChatListHeader";
-import MessageList, { MessageListInterface } from "../../mocks/MessageList";
+import MessageList, { MessageListInterface } from "../../mocks/MessageListMock";
 import ChatItem from "./ChatItem";
 import { RootStackParamList } from "../screenProps";
 import { StackScreenProps } from "@react-navigation/stack";

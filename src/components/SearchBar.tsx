@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { StyleSheet } from "react-native";
+import { ClippingRectangle, StyleSheet } from "react-native";
 import { SearchBar as RNESearchBar } from "react-native-elements";
 import { darkThemeBackground } from "../themes";
 
@@ -15,16 +15,14 @@ const SearchBar: FC<Props> = (props) => {
       placeholder={props.placeholder}
       onChangeText={(e) => props.onChangeText(e)}
       value={props.value}
-      containerStyle={styles.searchContainerStyle}
+      containerStyle={searchContainerStyle}
     />
   );
 };
 
-const styles = StyleSheet.create({
-  searchContainerStyle: {
-    backgroundColor: darkThemeBackground,
-  },
-});
+const searchContainerStyle = {
+  backgroundColor: darkThemeBackground,
+};
 
 SearchBar.defaultProps = {
   placeholder: "Search",

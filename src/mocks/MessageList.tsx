@@ -1,5 +1,14 @@
 import { ThumbnailAvatar } from "../assets";
 
+export interface MessageListInterface {
+  id: string;
+  avatar: any;
+  contactName: string;
+  message: string;
+  date: string;
+  isRead: boolean;
+}
+
 const MessageList = [
   {
     id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",

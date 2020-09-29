@@ -1,21 +1,30 @@
-import React from "react";
+import React, { FC } from "react";
 import { SafeAreaView, FlatList, StyleSheet, StatusBar } from "react-native";
 import SearchBar from "../../components/SearchBar";
 import { darkThemeBackground } from "../../themes";
 import ChatListHeader from "./ChatListHeader";
-import MessageList from "../../mocks/MessageList";
-import ChatItem, { ChatItemProps } from "./ChatItem";
+import MessageList, { MessageListInterface } from "../../mocks/MessageList";
+import ChatItem from "./ChatItem";
+import { RootStackParamList } from "../screenProps";
+import { StackScreenProps } from "@react-navigation/stack";
 
-const ChatListScreen = () => {
+type HomeScreenNavigationProp = StackScreenProps<RootStackParamList, "Home">;
+
+const ChatListScreen: FC<HomeScreenNavigationProp> = ({ navigation }) => {
   const [search, setSearch] = React.useState("");
 
-  const renderItem = ({ item }: { item: ChatItemProps }) => (
+  const handlePressChatItem = () => {
+    navigation.push("Detail");
+  };
+
+  const renderItem = ({ item }: { item: MessageListInterface }) => (
     <ChatItem
       contactName={item.contactName}
       avatar={item.avatar}
       date={item.date}
       message={item.message}
       isRead={item.isRead}
+      handlePress={handlePressChatItem}
     />
   );
 

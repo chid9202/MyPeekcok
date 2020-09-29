@@ -1,5 +1,12 @@
 import React, { FC } from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  TouchableWithoutFeedback,
+  GestureResponderEvent,
+} from "react-native";
 
 import IconArrowRight from "../../assets/IconArrowRight";
 import { Icon } from "react-native-elements";
@@ -11,35 +18,37 @@ export interface ChatItemProps {
   date: string;
   message: string;
   isRead: boolean;
+  handlePress: (event: GestureResponderEvent) => void;
 }
-
 const ChatItem: FC<ChatItemProps> = (props) => {
   return (
-    <View style={styles.section}>
-      <View style={styles.avatarColumn}>
-        {!!!props.isRead && (
-          <Icon
-            type="font-awesome"
-            name="circle"
-            color={SystemBlue}
-            size={10}
-          />
-        )}
-        <Image source={props.avatar} style={styles.avatarImage} />
-      </View>
-      <View style={styles.contentColumn}>
-        <View style={styles.messageHeader}>
-          <Text style={styles.contactName}>{props.contactName}</Text>
-          <Text style={styles.date}>{props.date}</Text>
-          <IconArrowRight />
+    <TouchableWithoutFeedback onPress={props.handlePress}>
+      <View style={styles.section}>
+        <View style={styles.avatarColumn}>
+          {!!!props.isRead && (
+            <Icon
+              type="font-awesome"
+              name="circle"
+              color={SystemBlue}
+              size={10}
+            />
+          )}
+          <Image source={props.avatar} style={styles.avatarImage} />
         </View>
-        <View style={styles.messageContent}>
-          <Text style={styles.message} numberOfLines={2}>
-            {props.message}
-          </Text>
+        <View style={styles.contentColumn}>
+          <View style={styles.messageHeader}>
+            <Text style={styles.contactName}>{props.contactName}</Text>
+            <Text style={styles.date}>{props.date}</Text>
+            <IconArrowRight />
+          </View>
+          <View style={styles.messageContent}>
+            <Text style={styles.message} numberOfLines={2}>
+              {props.message}
+            </Text>
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

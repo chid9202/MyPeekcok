@@ -5,22 +5,21 @@ import {
   Image,
   Text,
   TouchableOpacity,
-  Alert,
+  GestureResponderEvent,
 } from "react-native";
 import IconArrowLeft from "../../assets/IconArrowLeft";
 
 export interface ChatDetailHeaderProp {
   avatar: any;
   contactName: string;
-  handlePressGoback: Function;
+  handlePressGoback: (event: GestureResponderEvent) => void;
 }
 
 const ChatDetailHeader: FC<ChatDetailHeaderProp> = (props) => {
-  console.log({ props });
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => Alert.alert("Edit button pressed!")}
+        onPress={props.handlePressGoback}
         style={styles.arrowContainer}
       >
         <IconArrowLeft />

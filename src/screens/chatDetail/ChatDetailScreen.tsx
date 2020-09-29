@@ -10,7 +10,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 
 type DetailScreenNavigationProp = StackScreenProps<RootStackParamList, "Home">;
 
-const ChatDetailScreen: FC<DetailScreenNavigationProp> = (props) => {
+const ChatDetailScreen: FC<DetailScreenNavigationProp> = ({ navigation }) => {
   const messageThread: MessageThreadInterface = MESSAGE_THREAD;
   console.log({ messageThread });
   return (
@@ -18,6 +18,7 @@ const ChatDetailScreen: FC<DetailScreenNavigationProp> = (props) => {
       <ChatDetailHeader
         avatar={messageThread.avatar}
         contactName={messageThread.contactName}
+        handlePressGoback={() => navigation.goBack()}
       />
     </SafeAreaView>
   );

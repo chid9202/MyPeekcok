@@ -3,8 +3,8 @@ import {
   SafeAreaView,
   StyleSheet,
   StatusBar,
-  Text,
   ScrollView,
+  KeyboardAvoidingView,
 } from "react-native";
 import { darkThemeBackground } from "../../themes";
 import MESSAGE_THREAD, {
@@ -14,6 +14,7 @@ import ChatDetailHeader from "./ChatDetailHeader";
 import { RootStackParamList } from "../screenProps";
 import { StackScreenProps } from "@react-navigation/stack";
 import MesssageBox from "../../components/MessageBox";
+import InputBar from "../../components/InputBar";
 
 type DetailScreenNavigationProp = StackScreenProps<RootStackParamList, "Home">;
 
@@ -22,16 +23,23 @@ const ChatDetailScreen: FC<DetailScreenNavigationProp> = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ChatDetailHeader
-        avatar={messageThread.avatar}
-        contactName={messageThread.contactName}
-        handlePressGoback={() => navigation.goBack()}
-      />
-      <ScrollView>
-        {messageThread.thread.map(({ date, message, type }) => (
-          <MesssageBox messageContent={message} messageType={type} />
-        ))}
-      </ScrollView>
+      <KeyboardAvoidingView behavior={"padding"} style={{ flex: 1 }}>
+        <ChatDetailHeader
+          avatar={messageThread.avatar}
+          contactName={messageThread.contactName}
+          handlePressGoback={() => navigation.goBack()}
+        />
+        <ScrollView>
+          {messageThread.thread.map(({ messageID, date, message, type }) => (
+            <MesssageBox
+              key={messageID}
+              messageContent={message}
+              messageType={type}
+            />
+          ))}
+        </ScrollView>
+        <InputBar />
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };

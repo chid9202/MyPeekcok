@@ -4,7 +4,7 @@ export interface MessageThreadInterface {
   threadID: string;
   avatar: any;
   contactName: string;
-  thread: { message: string; date?: string }[];
+  thread: { message: string; date?: string; type: "send" | "receive" }[];
 }
 
 const MESSAGE_THREAD = {
@@ -15,11 +15,13 @@ const MESSAGE_THREAD = {
     {
       date: "Wednesday 9:32 PM",
       message: "hi!!~~",
+      type: "send",
     },
     {
       message: "towtwotowtowtowo",
+      type: "receive",
     },
-    { date: "Thursdaty 10:03 AM", message: "therheirheirhei" },
+    { date: "Thursdaty 10:03 AM", message: "therheirheirhei", type: "send" },
   ],
 };
 

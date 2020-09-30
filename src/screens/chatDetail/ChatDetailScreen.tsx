@@ -1,5 +1,11 @@
 import React, { FC } from "react";
-import { SafeAreaView, StyleSheet, StatusBar } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  StatusBar,
+  Text,
+  ScrollView,
+} from "react-native";
 import { darkThemeBackground } from "../../themes";
 import MESSAGE_THREAD, {
   MessageThreadInterface,
@@ -7,12 +13,13 @@ import MESSAGE_THREAD, {
 import ChatDetailHeader from "./ChatDetailHeader";
 import { RootStackParamList } from "../screenProps";
 import { StackScreenProps } from "@react-navigation/stack";
+import MesssageBox from "../../components/MessageBox";
 
 type DetailScreenNavigationProp = StackScreenProps<RootStackParamList, "Home">;
 
 const ChatDetailScreen: FC<DetailScreenNavigationProp> = ({ navigation }) => {
   const messageThread: MessageThreadInterface = MESSAGE_THREAD;
-  console.log({ messageThread });
+
   return (
     <SafeAreaView style={styles.container}>
       <ChatDetailHeader
@@ -20,6 +27,11 @@ const ChatDetailScreen: FC<DetailScreenNavigationProp> = ({ navigation }) => {
         contactName={messageThread.contactName}
         handlePressGoback={() => navigation.goBack()}
       />
+      <ScrollView>
+        {messageThread.thread.map(({ date, message, type }) => (
+          <MesssageBox messageContent={message} messageType={type} />
+        ))}
+      </ScrollView>
     </SafeAreaView>
   );
 };

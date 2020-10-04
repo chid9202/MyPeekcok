@@ -15,7 +15,7 @@ export default function App() {
           headerShown: false,
         }}
       >
-        {/* <Stack.Screen name="Home" component={ChatListScreen}></Stack.Screen> */}
+        <Stack.Screen name="Home" component={ChatListScreen}></Stack.Screen>
         <Stack.Screen name="Detail" component={ChatDetailScreen}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

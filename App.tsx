@@ -1,6 +1,6 @@
 import React from "react";
-import ChatListScreen from "screens/chatList/ChatListScreen";
-import ChatDetailScreen from "screens/chatDetail/ChatDetailScreen";
+import ChatListScreen from "screens/chatList";
+import ChatDetailScreen from "screens/chatDetail";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { RootStackParamList } from "screens/screenProps";

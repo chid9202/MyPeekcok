@@ -1,0 +1,15 @@
+{
+  "projectName": "MyPeekcok",
+  "version": "3.0",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "react-native",
+    "config": {
+      "SourceDir": "/Users/daehanchi/projects/MyPeekcok",
+      "DistributionDir": "/Users/daehanchi/projects/MyPeekcok",
+      "BuildCommand": "expo build:web",
+      "StartCommand": "expo start:web"
+    }
+  },
+  "providers": ["awscloudformation"]
+}

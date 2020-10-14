@@ -4,6 +4,8 @@ import ChatDetailScreen from "screens/chatDetail";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { RootStackParamList } from "screens/screenProps";
+import { ApolloProvider } from "@apollo/client";
+import { graphql } from "@apollo/react-hoc";
 
 const Stack = createStackNavigator<RootStackParamList>();
 

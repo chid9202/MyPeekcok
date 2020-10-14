@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.4",
+    "@apollo/react-hoc": "^4.0.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.7.5",
     "@react-navigation/stack": "^5.9.2",

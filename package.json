@@ -8,9 +8,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@apollo/client": "^3.2.5",
+    "@apollo/react-hooks": "^4.0.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.7.5",
     "@react-navigation/stack": "^5.9.2",
+    "aws-amplify": "^3.3.4",
     "aws-appsync": "^4.0.1",
     "aws-appsync-react": "^4.0.1",
     "aws-sdk": "^2.772.0",
@@ -18,8 +21,8 @@
     "expo-splash-screen": "^0.6.1",
     "expo-status-bar": "^1.0.2",
     "expo-updates": "~0.3.4",
+    "graphql": "^15.3.0",
     "react": "~16.13.1",
-    "react-apollo": "^2.5.8",
     "react-dom": "~16.13.1",
     "react-native": "^0.63.2",
     "react-native-elements": "^2.3.2",

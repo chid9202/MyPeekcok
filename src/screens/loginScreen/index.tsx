@@ -23,7 +23,8 @@ const LoginScreen: FC<LoginNavigationProp> = ({ navigation }) => {
 
   const onButtonClick = () => {
     console.log('onButtonClick...', username, data)
-    createUser({ variables: { username: username}})
+    // createUser({ variables: { username: username}})
+    navigation.navigate('Home', {'username': username})
   }
 
   return (

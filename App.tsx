@@ -38,12 +38,12 @@ const App = () => {
         }}
       >
         <Stack.Screen 
-          name="Login" 
-          component={LoginScreen} 
-        />
-        <Stack.Screen 
           name="Home" 
           component={ChatListScreen} 
+        />
+        <Stack.Screen 
+          name="Login" 
+          component={LoginScreen} 
         />
         <Stack.Screen name="Detail" component={ChatDetailScreen} />
       </Stack.Navigator>

@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { View, StyleSheet, Text, Alert, TouchableOpacity } from "react-native";
 import { SystemBlue } from "../../themes";
 import WriteIcon from "../../assets/IconWrite";
+import Tooltip from '../../components/Tooltip'
 
 const ChatListHeader = () => {
+  const [isEditTooltip, setIsEditTooltip] = useState(true)
+  const renderTooltip = () => {
+    return (
+      <View style={styles.tooltip}>
+        test...
+      </View>
+    )
+  }
   return (
     <View style={styles.container}>
       <View style={styles.interactiveHeader}>
-        <TouchableOpacity onPress={() => Alert.alert("Edit button pressed!")}>
-          <Text style={styles.editButton}>Edit</Text>
-        </TouchableOpacity>
+        <Tooltip isActive={isEditTooltip} tooltipContent={renderTooltip()}>
+          <TouchableOpacity onPress={() => Alert.alert("Write button pressed!")}>
+            <Text style={styles.editButton}>Edit</Text>
+          </TouchableOpacity>
+        </Tooltip>
         <TouchableOpacity onPress={() => Alert.alert("Write button pressed!")}>
           <WriteIcon />
         </TouchableOpacity>
@@ -52,6 +63,9 @@ const styles = StyleSheet.create({
     letterSpacing: 0.374,
     color: "#ffffff",
   },
+  tooltip: {
+
+  }
 });
 
 export default ChatListHeader;

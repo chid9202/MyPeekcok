@@ -21,13 +21,15 @@ const Tooltip = (props: Props) => {
 const styles = StyleSheet.create({
   container: {
     position: "relative",
+    zIndex: 0
   },
   tooltipContainer: {
     position: "absolute",
     backgroundColor: '#666666',
     color: "white",
-    bottom: -25,
+    top: 30,
     borderRadius: 5,
+    zIndex: 1
   },
 })
 export default Tooltip

@@ -3,14 +3,24 @@ import { View, StyleSheet, Text, Alert, TouchableOpacity } from "react-native";
 import { SystemBlue } from "../../themes";
 import WriteIcon from "../../assets/IconWrite";
 import Tooltip from '../../components/Tooltip'
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const ChatListHeader = () => {
   const [isEditTooltip, setIsEditTooltip] = useState(true)
   const renderTooltip = () => {
     return (
       <View style={styles.tooltip}>
-        test...
+        <TouchableWithoutFeedback style={styles.tooltipRow}>
+          <Text>Select Messesages</Text>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback style={styles.tooltipRow}>
+          <Text>Edit Pins</Text>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback style={styles.tooltipRow}>
+          <Text>Edit Name and Photo</Text>
+        </TouchableWithoutFeedback>
       </View>
+
     )
   }
   return (
@@ -64,7 +74,13 @@ const styles = StyleSheet.create({
     color: "#ffffff",
   },
   tooltip: {
-
+    width: 150,
+    height: 500,
+    padding: 5,
+  },
+  tooltipRow: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#CCCCCC'
   }
 });
 

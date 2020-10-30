@@ -31,7 +31,9 @@ const ChatListScreen: FC<HomeScreenNavigationProp> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ChatListHeader />
-      <SearchBar placeholder="Search" onChangeText={setSearch} value={search} />
+      <SearchBar 
+        placeholder="Search" 
+        onChangeText={setSearch} value={search}/>
       <FlatList
         data={MessageList}
         renderItem={renderItem}
